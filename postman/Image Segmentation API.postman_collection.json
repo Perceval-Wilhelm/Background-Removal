@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "7cc5ee7c-b8a6-4d52-8a10-d26ac7a88523",
+		"name": "Image Segmentation API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36289470"
+	},
+	"item": [
+		{
+			"name": "Segment Image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "challenge",
+							"value": "cv3",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1ef295d5-04a5-4200-852c-00725d862727"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/segment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"segment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Segment Image",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "challenge",
+									"value": "cv3",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef295d5-04a5-4200-852c-00725d862727"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/segment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"segment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 13 Jun 2024 09:18:52 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "70"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"succeed\",\n    \"segmented_image_path\": \"./output/bus_output.png\"\n}"
+				}
+			]
+		}
+	]
+}
