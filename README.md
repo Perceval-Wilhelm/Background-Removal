@@ -1,4 +1,4 @@
-# Image Segmentation API (week1_test2)
+# Background Removal API
 
 This repository contains a FastAPI application for image segmentation using YOLOv8. The API takes an image as input and returns a segmented image with the background removed.
 
