@@ -245,4 +245,3 @@ docker run -p 8000:8000 -p 8501:8501 percevalwilhelm/background-removal-app
 
 - Ensure the YOLOv8 model (`yolov8m-seg.pt`) is downloaded and placed in the `model` directory.
 - For any issues or questions, please open an issue on the repository or contact the maintainer.
-```
