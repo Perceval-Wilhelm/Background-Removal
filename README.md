@@ -1,5 +1,3 @@
-Here’s the complete updated `README.md` file for your project:
-
 ```markdown
 # Background Removal
 
