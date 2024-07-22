@@ -1,4 +1,3 @@
-```markdown
 # Background Removal
 
 This repository contains a FastAPI application for image segmentation using YOLOv8, as well as a Streamlit frontend for easy interaction. The API takes an image as input and returns a segmented image with the background removed.
