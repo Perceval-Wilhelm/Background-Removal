@@ -1,6 +1,9 @@
-# Image Segmentation API (week1_test2)
+Here’s the complete updated `README.md` file for your project:
 
-This repository contains a FastAPI application for image segmentation using YOLOv8. The API takes an image as input and returns a segmented image with the background removed.
+```markdown
+# Background Removal
+
+This repository contains a FastAPI application for image segmentation using YOLOv8, as well as a Streamlit frontend for easy interaction. The API takes an image as input and returns a segmented image with the background removed.
 
 ## Table of Contents
 
@@ -9,7 +12,9 @@ This repository contains a FastAPI application for image segmentation using YOLO
 - [Running the Server](#running-the-server)
 - [Using Postman for Testing](#using-postman-for-testing)
 - [Running the Server in a tmux Session](#running-the-server-in-a-tmux-session)
+- [Docker Deployment](#docker-deployment)
 - [Project Structure](#project-structure)
+- [Additional Information](#additional-information)
 
 ## Prerequisites
 
@@ -24,15 +29,15 @@ This repository contains a FastAPI application for image segmentation using YOLO
 1. **Clone the repository:**
 
     ```bash
-    git clone https://gitlab.com/sirrtt/week1_test2.git
-    cd week1_test2
+    git clone https://github.com/Perceval-Wilhelm/Background-Removal.git
+    cd Background-Removal
     ```
 
 2. **Create and activate the Conda environment:**
 
     ```bash
-    conda create --name image-segmentation-api python=3.8.19
-    conda activate image-segmentation-api
+    conda create --name background-removal python=3.8.19
+    conda activate background-removal
     ```
 
 3. **Install dependencies:**
@@ -51,22 +56,24 @@ This repository contains a FastAPI application for image segmentation using YOLO
     Ensure your directory structure looks like this:
 
     ```plaintext
-    image_segmentation_api/
+    Background-Removal/
     ├── input/
-    |   ├── bus.png
+    │   ├── bus.png
     │   └── cars.png
     ├── model/
     │   └── yolov8m-seg.pt
     ├── output/
-    |   ├── bus_output.png
+    │   ├── bus_output.png
     │   └── cars_output.png
-    ├── postman_collection
-    │   └── Image Segmentation API.postman_collection.json
+    ├── postman_collection/
+    │   └── Background Removal.postman_collection.json
     ├── tests/
     │   └── test_segmentation.py
     ├── app.py
     ├── main.py
     ├── README.md
+    ├── docker-compose.yml
+    ├── Dockerfile
     ├── requirements.txt
     ├── requirements_pytorch.txt
     └── segmentation.py
@@ -77,22 +84,25 @@ This repository contains a FastAPI application for image segmentation using YOLO
 1. **Activate the Conda environment:**
 
     ```bash
-    conda activate image-segmentation-api
+    conda activate background-removal
     ```
 
 2. **Run the FastAPI server:**
 
     ```bash
-    uvicorn app.main:app --host 0.0.0.0 --port 8000
+    uvicorn main:app --host 0.0.0.0 --port 8000
     ```
 
-3. **Access the FastAPI documentation:**
+3. **Run the Streamlit app:**
 
-    Open your web browser and navigate to:
+    ```bash
+    streamlit run app.py
+    ```
 
-    ```
-    http://localhost:8000/docs
-    ```
+4. **Access the applications:**
+
+    - **FastAPI documentation:** [http://localhost:8000/docs](http://localhost:8000/docs)
+    - **Streamlit app:** [http://localhost:8501](http://localhost:8501)
 
 ## Using Postman for Testing
 
@@ -105,7 +115,7 @@ This repository contains a FastAPI application for image segmentation using YOLO
 
 3. **Create a new request in Postman:**
     - Go to the `Collections` tab.
-    - Expand the `Image Segmentation API` collection.
+    - Expand the `Background Removal` collection.
     - Select `Segment Image` request.
 
 4. **Set up the request:**
@@ -161,7 +171,7 @@ This repository contains a FastAPI application for image segmentation using YOLO
 1. **Start a new `tmux` session:**
 
     ```bash
-    tmux new -s image-segmentation
+    tmux new -s background-removal
     ```
 
 2. **Navigate to your project directory:**
@@ -173,13 +183,13 @@ This repository contains a FastAPI application for image segmentation using YOLO
 3. **Activate the Conda environment:**
 
     ```bash
-    conda activate image-segmentation-api
+    conda activate background-removal
     ```
 
 4. **Run the FastAPI server:**
 
     ```bash
-    uvicorn app.main:app --host 0.0.0.0 --port 8000
+    uvicorn main:app --host 0.0.0.0 --port 8000
     ```
 
 5. **Detach from the `tmux` session:**
@@ -188,8 +198,39 @@ This repository contains a FastAPI application for image segmentation using YOLO
 6. **Reattach to your `tmux` session later:**
 
     ```bash
-    tmux attach -t image-segmentation
+    tmux attach -t background-removal
     ```
+
+## Docker Deployment
+
+### Building the Docker Image
+
+To build the Docker image, run the following command in the project directory:
+
+```bash
+docker build -t background-removal-app .
+```
+
+### Pulling the Docker Image
+
+To use the pre-built Docker image from Docker Hub, run the following command:
+
+```bash
+docker pull percevalwilhelm/background-removal-app
+```
+
+### Running the Docker Container
+
+To run the Docker container, use the following command:
+
+```bash
+docker run -p 8000:8000 -p 8501:8501 percevalwilhelm/background-removal-app
+```
+
+### Accessing the Applications
+
+- **FastAPI documentation:** [http://localhost:8000/docs](http://localhost:8000/docs)
+- **Streamlit app:** [http://localhost:8501](http://localhost:8501)
 
 ## Project Structure
 
@@ -200,10 +241,11 @@ This repository contains a FastAPI application for image segmentation using YOLO
 - **requirements.txt**: Contains the list of dependencies.
 - **requirements_pytorch.txt**: Contains the list of PyTorch dependencies.
 - **README.md**: Project documentation.
-- **app.py**: Streamlit app for front-end (if applicable).
-- **postman/**: JSON file for testing on Postman
+- **app.py**: Streamlit app for front-end.
+- **postman/**: JSON file for testing on Postman.
 
 ## Additional Information
 
 - Ensure the YOLOv8 model (`yolov8m-seg.pt`) is downloaded and placed in the `model` directory.
 - For any issues or questions, please open an issue on the repository or contact the maintainer.
+```

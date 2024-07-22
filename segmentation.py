@@ -6,7 +6,7 @@ import os
 def segment_image(image_path):
     try:
         # Load the YOLOv8 model
-        model = YOLO("./model/yolov8m-seg.pt")  # pretrained YOLOv8 model
+        model = YOLO("app/model/yolov8m-seg.pt")  # pretrained YOLOv8 model
 
         # Read the image
         image = cv2.imread(image_path)
