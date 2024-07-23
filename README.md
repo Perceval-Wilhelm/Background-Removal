@@ -2,6 +2,9 @@
 
 This repository contains a FastAPI application for image segmentation using YOLOv8, as well as a Streamlit frontend for easy interaction. The API takes an image as input and returns a segmented image with the background removed.
 
+## Demo
+https://github.com/user-attachments/assets/70c14382-d957-48f7-bc5d-c0653dab0a5a
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
